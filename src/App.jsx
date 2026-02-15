@@ -1,46 +1,78 @@
-import React from 'react'
-import WhatsAppFloat from './components/WhatsAppFloat'
-import Header from './components/Header'
-import Hero from './components/Hero'
-import Services from './components/Services'
-import CTASection from './components/CTASection'
-import Videos from './components/Videos'
-import Gallery from './components/Gallery'
-import About from './components/About'
-import Footer from './components/Footer'
-import NewArrival from './components/NewArrival'
-import ShopCollection from './components/ShopCollection'
-import MakeupServices from './components/MakeupServices'
-import BookCTA from './components/BookCTA'
-import PortfolioVideos from './components/PortfolioVideos'
-import Gallery1 from './components/Gallery1'
-import About1 from './components/About1'
-import Footer1 from './components/Footer1'
-import Hero1 from './components/Hero1'
-import Navbar from './components/Navbar'
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
+import Clientele from "./components/collection_clientele/Clientele"
+import Lahenga_sherwani from "./components/Couple_collection_Lahenga_sherwani/Lahenga_sherwani"
+import Punjabi from "./components/Couple_collection_Punjabi/Punjabi"
+import Home from "./components/Home"
+import Juti from "./components/juti-collection/Juti"
+import MensCollection from "./components/Men_collection_Dhuti/MensCollection"
+import Kurta from "./components/Men_collection_kurta/Kurta"
+import Sherwani from "./components/Men_collection_sherwani/Sherwani"
+import Blouse from "./components/Women_collection_Blouse/Blouse"
+import Lahenga from "./components/Women_collection_Lahenga/Lahenga"
+import Saree from "./components/Women_collection_Saree/Saree"
+import MainLayout from "./components/MainLayout";
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Home />
+  },
+  {
+    path: "/man",
+    element: <MainLayout />,
+    children: [
+      { path: "dhuti", element: <MensCollection /> },
+      { path: "kurta", element: <Kurta /> },
+      { path: "sherwani", element: <Sherwani /> }
+    ]
+  },
+  {
+    path: "/women",
+    element: <MainLayout />,
+    children: [
+      { path: "saree", element: <Saree /> },
+      { path: "lahenga", element: <Lahenga /> },
+      { path: "blouse", element: <Blouse /> }
+    ]
+  },
+  {
+    path: "/couple",
+    element: <MainLayout />,
+    children: [
+      { path: "punjabi", element: <Punjabi /> },
+      { path: "lahenga_sherwani", element: <Lahenga_sherwani /> }
+    ]
+  },
+  {
+    path: "/juti",
+    element: <MainLayout />,
+    children: [
+      { index: true, element: <Juti /> }  
+    ]
+  },
+  {
+    path: "/clintele",
+    element: <MainLayout />,
+    children: [
+      { index: true, element: <Clientele /> }  
+    ]
+  }
+]);
 const App = () => {
   return (
     <>
-      <WhatsAppFloat/>
-      {/* <Header/> */}
-      <Navbar/>
-      <Hero/>
-      <NewArrival/>
-      <ShopCollection/>
-      <MakeupServices/>
-      <BookCTA/>
-      <PortfolioVideos/>
-      <Gallery1/>
-      <About1/>
-      <Footer1/>
-
-      {/* <Services/>
-      <CTASection/>
-      <Videos/>
-      <Gallery/>
-      <About/>
-      <Footer/> */}
+      {/* <Home/> */}
+      {/* <MensCollection/> */}
+      {/* <Kurta/> */}
+      {/* <Sherwani/> */}
+      {/* <Saree/> */}
+      {/* <Lahenga/> */}
+      {/* <Blouse/> */}
+      {/* <Punjabi/> */}
+      {/* <Lahenga_sherwani/> */}
+      {/* <Juti/> */}
+      {/* <Clientele/> */}
+      <RouterProvider router={router}/>
     </>
   )
 }

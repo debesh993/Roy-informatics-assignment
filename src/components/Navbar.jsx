@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { HiMenu, HiX, HiChevronDown } from "react-icons/hi";
+import { Link } from "react-router-dom";
 
 import { FaFacebookF, FaTwitter, FaInstagram } from "react-icons/fa";
 import logo from "../assets/images/logo/fashion_logo.png";
@@ -16,81 +17,91 @@ const Navbar = () => {
 
   const menuItems = [
     { name: "Home", link: "/" },
-    { name: "Shop", link: "/shop" },
+
     {
       name: "Men's",
       submenu: [
-        { name: "Dhuti", link: "/subcategory/dhuti" },
-        { name: "Kurta", link: "/subcategory/kurta" },
-        { name: "Sherwanis", link: "/subcategory/sherwanis" },
+        { name: "Dhuti", link: "/man/dhuti" },
+        { name: "Kurta", link: "/man/kurta" },
+        { name: "Sherwani", link: "/man/sherwani" },
       ],
     },
     {
       name: "Women",
       submenu: [
-        { name: "Saree", link: "/subcategory/saree" },
-        { name: "Lahenga", link: "/subcategory/lahenga" },
-        { name: "Blouse", link: "/subcategory/blouse" },
+        { name: "Saree", link: "/women/saree" },
+        { name: "Lahenga", link: "/women/lahenga" },
+        { name: "Blouse", link: "/women/blouse" },
       ],
     },
     {
       name: "Couple",
       submenu: [
-        { name: "Punjabi & Saree", link: "/subcategory/punjabi-saree" },
-        { name: "Lehenga Sherwani", link: "/subcategory/lehenga-sherwani" },
+        { name: "Punjabi", link: "/couple/punjabi" },
+        { name: "Lahenga Sherwani", link: "/couple/lahenga_sherwani" },
       ],
     },
     {
       name: "Juti",
-      submenu: [{ name: "Men's Juti", link: "/subcategory/mens-juti" }],
+      submenu: [{ name: "Men's Juti", link: "/juti" }],
     },
     {
-      name: "Clientele",
-      submenu: [{ name: "Clientele", link: "/subcategory/clientele" }],
+      name: "clintele",
+      submenu: [{ name: "Clientele", link: "/clintele" }],
     },
   ];
 
   return (
     <header
       className={`fixed w-full top-0 left-0 z-50 transition-all duration-300 ${
-        scrolled ? "bg-white shadow-lg py-3" : "bg-transparent py-5 text-blue-600"
+        scrolled
+          ? "bg-white shadow-lg py-3"
+          : "bg-transparent py-5 text-blue-600"
       }`}
     >
       <div className="max-w-[1400px] mx-auto px-5 lg:px-10 flex justify-between items-center">
         {/* Logo */}
-        <a
-          href="/"
+        <Link
+          to="/"
           className="flex items-center transition-transform duration-500 hover:scale-105"
         >
           <img src={logo} alt="LOGO" className="h-20 w-auto" />
-        </a>
+        </Link>
 
         {/* Desktop Menu */}
         <ul className="hidden md:flex items-center gap-6">
           {menuItems.map((item, idx) => (
             <li key={idx} className="relative group">
-              <a
-                href={item.link || "#"}
-                className={`font-medium flex items-center gap-1 transition ${
-                  scrolled ? "text-gray-800" : "text-white"
-                } hover:text-blue-700`}
-              >
-                {item.name}
-                {item.submenu && (
+              {item.submenu ? (
+                <span
+                  className={`font-medium flex items-center gap-1 transition cursor-pointer ${
+                    scrolled ? "text-gray-800" : "text-white"
+                  } hover:text-blue-700`}
+                >
+                  {item.name}
                   <HiChevronDown className="ml-0.5 text-[1rem] transition-transform duration-300 group-hover:rotate-180" />
-                )}
-              </a>
+                </span>
+              ) : (
+                <Link
+                  to={item.link}
+                  className={`font-medium flex items-center gap-1 transition ${
+                    scrolled ? "text-gray-800" : "text-white"
+                  } hover:text-blue-700`}
+                >
+                  {item.name}
+                </Link>
+              )}
 
               {item.submenu && (
                 <ul className="absolute top-full left-0 mt-2 w-48 bg-white shadow-lg rounded-lg opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all duration-300">
                   {item.submenu.map((sub, subIdx) => (
                     <li key={subIdx}>
-                      <a
-                        href={sub.link}
+                      <Link
+                        to={sub.link}
                         className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-700 transition"
                       >
                         {sub.name}
-                      </a>
+                      </Link>
                     </li>
                   ))}
                 </ul>
