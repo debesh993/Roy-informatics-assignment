@@ -3,8 +3,8 @@ import backgroundimage from "../../assets/background/texture.jpeg";
 import { useProducts } from "../context/ProductContext";
 
 const MensCollection = () => {
-  const { products } = useProducts();
-
+let {products}=useProducts()
+  products = products.slice(1, 12);
   return (
     <section
       id="expert"

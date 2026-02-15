@@ -1,51 +1,12 @@
 import backgroundimage from "../../assets/background/texture.jpeg";
 
 // Import all saree images
-import laherwani1 from "../../assets/Lahenga_sherwani/20220624121734_ANKL18copy.jpg";
-import laherwani2 from "../../assets/Lahenga_sherwani/20220624124325_ANKL32copy.jpg";
-import laherwani3 from "../../assets/Lahenga_sherwani/20220624125839_ANKL17copy.jpg";
-import laherwani4 from "../../assets/Lahenga_sherwani/20220731122121_lehenga5.jpg";
-// Create the products array
-const products = [
-  {
-    id: 1,
-    name: "Lahenga and sherwani",
-    category: "Lahenga and sherwani",
-    mrp: "N/A",
-    salePrice: "₹5500",
-    image: laherwani1,
-    link: "/product_details/1",
-  },
-  {
-    id: 2,
-    name: "Lahenga and sherwani",
-    category: "Lahenga and sherwani",
-    mrp: "N/A",
-    salePrice: "₹5800",
-    image: laherwani2,
-    link: "/product_details/2",
-  },
-  {
-    id: 3,
-    name: "Lahenga and sherwani",
-    category: "Lahenga and sherwani",
-    mrp: "N/A",
-    salePrice: "₹6000",
-    image: laherwani3,
-    link: "/product_details/3",
-  },
-  {
-    id: 4,
-    name: "Lahenga and sherwani",
-    category: "Lahenga and sherwani",
-    mrp: "N/A",
-    salePrice: "₹6300",
-    image: laherwani4,
-    link: "/product_details/4",
-  },
-];
+import { useProducts } from '../context/ProductContext';
+import { Link } from "react-router-dom";
 
 const Lahenga_sherwani = () => {
+  let {products}=useProducts()
+  products = products.slice(123, 127);
   return (
     <section
       id="expert"
@@ -81,11 +42,11 @@ const Lahenga_sherwani = () => {
                 <p className="text-gray-800 font-bold mb-3">
                   Sale Price: {product.salePrice}
                 </p>
-                <a href={product.link}>
+                <Link to={product.link}>
                   <button className="px-6 py-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded transition duration-300">
                     View More
                   </button>
-                </a>
+                </Link>
               </div>
             </div>
           ))}

@@ -1,52 +1,12 @@
 import backgroundimage from "../../assets/background/texture.jpeg";
 
 // Import all saree images
-import lehenga1 from "../../assets/lahenga/20220624120632_ANKL6copy.jpg";
-import lehenga2 from "../../assets/lahenga/20220624124546_ANKL24copy.jpg";
-import lehenga3 from "../../assets/lahenga/20220624125436_ANKL12copy.jpg";
-import lehenga4 from "../../assets/lahenga/20220731115839_lehenga2.jpg";
-// Create the products array
-const products=[
-    {
-  id: 1,
-  name: "Elegant Lehenga 1",
-  category: "Women's",
-  mrp: "N/A",
-  salePrice: "₹4500",
-  image: lehenga1,
-  link: "/product_details/5",
-},
-{
-  id: 2,
-  name: "Elegant Lehenga 2",
-  category: "Women's",
-  mrp: "N/A",
-  salePrice: "₹4700",
-  image: lehenga2,
-  link: "/product_details/6",
-},
-{
-  id: 3,
-  name: "Elegant Lehenga 3",
-  category: "Women's",
-  mrp: "N/A",
-  salePrice: "₹4900",
-  image: lehenga3,
-  link: "/product_details/7",
-},
-{
-  id: 4,
-  name: "Elegant Lehenga 4",
-  category: "Women's",
-  mrp: "N/A",
-  salePrice: "₹5200",
-  image: lehenga4,
-  link: "/product_details/8",
-},
-]
+import { useProducts } from '../context/ProductContext';
+import { Link } from "react-router-dom";
 
 const Lahenga = () => {
-  return (
+let {products}=useProducts()
+  products = products.slice(93, 97);  return (
     <section
       id="expert"
       className="py-32 bg-cover bg-center"
@@ -81,11 +41,11 @@ const Lahenga = () => {
                 <p className="text-gray-800 font-bold mb-3">
                   Sale Price: {product.salePrice}
                 </p>
-                <a href={product.link}>
+                <Link to={product.link}>
                   <button className="px-6 py-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded transition duration-300">
                     View More
                   </button>
-                </a>
+                </Link>
               </div>
             </div>
           ))}

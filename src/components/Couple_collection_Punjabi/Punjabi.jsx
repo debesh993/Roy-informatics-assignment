@@ -1,42 +1,12 @@
 import backgroundimage from "../../assets/background/texture.jpeg";
 
 // Import all saree images
-import punjabi1 from "../../assets/punjabi/20220813013242_kutub1.jpg";
-import punjabi2 from "../../assets/punjabi/20220813013801_kutub2.jpg";
-import punjabi3 from "../../assets/punjabi/202306051128028803.jpg";
-// Create the products array
-const products = [
-  {
-    id: 1,
-    name: "Punjabi Couple Set 1",
-    category: "Couple's",
-    mrp: "N/A",
-    salePrice: "₹3500",
-    image: punjabi1,
-    link: "/product_details/1",
-  },
-  {
-    id: 2,
-    name: "Punjabi Couple Set 2",
-    category: "Couple's",
-    mrp: "N/A",
-    salePrice: "₹3700",
-    image: punjabi2,
-    link: "/product_details/2",
-  },
-  {
-    id: 3,
-    name: "Punjabi Couple Set 3",
-    category: "Couple's",
-    mrp: "N/A",
-    salePrice: "₹4000",
-    image: punjabi3,
-    link: "/product_details/3",
-  },
-];
+import { useProducts } from '../context/ProductContext';
+import { Link } from "react-router-dom";
 
 const Punjabi = () => {
-  return (
+let {products}=useProducts()
+  products = products.slice(120, 123);  return (
     <section
       id="expert"
       className="py-32 bg-cover bg-center"
@@ -71,11 +41,11 @@ const Punjabi = () => {
                 <p className="text-gray-800 font-bold mb-3">
                   Sale Price: {product.salePrice}
                 </p>
-                <a href={product.link}>
+                <Link to={product.link}>
                   <button className="px-6 py-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded transition duration-300">
                     View More
                   </button>
-                </a>
+                </Link>
               </div>
             </div>
           ))}

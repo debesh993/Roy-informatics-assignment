@@ -41,8 +41,8 @@ const Eachproduct = () => {
 
   // ✅ Correct related products filter
   const relatedProducts = products.filter(
-    (p) => p.id !== product.id
-  );
+  (p) => p.category === product.category && p.id !== product.id
+);
 
   // ✅ Proper GSAP animation (scoped & safe)
   useEffect(() => {

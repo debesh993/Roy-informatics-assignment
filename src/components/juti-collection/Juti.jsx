@@ -1,37 +1,12 @@
 import backgroundimage from "../../assets/background/texture.jpeg";
 
 // Import all saree images
-import juti1 from "../../assets/juti/20220713114115_juti1.jpg";
-import juti2 from "../../assets/juti/20220728032921_juti5.jpg";
-import juti3 from "../../assets/juti/20220728033240_juti11.jpg";
-import juti4 from "../../assets/juti/20220728033746_juti8.jpg";
-import juti5 from "../../assets/juti/202303040123207628.jpg";
-import juti6 from "../../assets/juti/202303040220208058.jpg";
-import juti7 from "../../assets/juti/202303040251468481.jpg";
-import juti8 from "../../assets/juti/202303040311125578.jpg";
-import juti9 from "../../assets/juti/202303040314448832.jpg";
-import juti10 from "../../assets/juti/202308150704264821.jpg";
-import juti11 from "../../assets/juti/202407090639547348.jpg";
-import juti12 from "../../assets/juti/202407090640541938.jpg";
-import juti13 from "../../assets/juti/202407090643157007.jpg";
-// Create the products array
-const products = [
-  { id: 1, name: "Juti", category: "Juti", mrp: "N/A", salePrice: "₹900", image: juti1, link: "/product_details/1" },
-  { id: 2, name:"Juti", category: "Juti", mrp: "N/A", salePrice: "₹1000", image: juti2, link: "/product_details/2" },
-  { id: 3, name:"Juti", category: "Juti", mrp: "N/A", salePrice: "₹1100", image: juti3, link: "/product_details/3" },
-  { id: 4, name:"Juti", category: "Juti", mrp: "N/A", salePrice: "₹1200", image: juti4, link: "/product_details/4" },
-  { id: 5, name:"Juti", category: "Juti", mrp: "N/A", salePrice: "₹1300", image: juti5, link: "/product_details/5" },
-  { id: 6, name:"Juti", category: "Juti", mrp: "N/A", salePrice: "₹1400", image: juti6, link: "/product_details/6" },
-  { id: 7, name:"Juti", category: "Juti", mrp: "N/A", salePrice: "₹1500", image: juti7, link: "/product_details/7" },
-  { id: 8, name:"Juti", category: "Juti", mrp: "N/A", salePrice: "₹1600", image: juti8, link: "/product_details/8" },
-  { id: 9, name:"Juti", category: "Juti", mrp: "N/A", salePrice: "₹1700", image: juti9, link: "/product_details/9" },
-  { id: 10, name: "Juti", category: "Juti", mrp: "N/A", salePrice: "₹1800", image: juti10, link: "/product_details/10" },
-  { id: 11, name: "Juti", category: "Juti", mrp: "N/A", salePrice: "₹1900", image: juti11, link: "/product_details/11" },
-  { id: 12, name: "Juti", category: "Juti", mrp: "N/A", salePrice: "₹2000", image: juti12, link: "/product_details/12" },
-  { id: 13, name: "Juti", category: "Juti", mrp: "N/A", salePrice: "₹2100", image: juti13, link: "/product_details/13" },
-];
+import { useProducts } from '../context/ProductContext';
+import { Link } from "react-router-dom";
 
 const Juti = () => {
+  let {products}=useProducts()
+  products = products.slice(127, 140);
   return (
     <section
       id="expert"
@@ -67,11 +42,11 @@ const Juti = () => {
                 <p className="text-gray-800 font-bold mb-3">
                   Sale Price: {product.salePrice}
                 </p>
-                <a href={product.link}>
+                <Link to={product.link}>
                   <button className="px-6 py-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded transition duration-300">
                     View More
                   </button>
-                </a>
+                </Link>
               </div>
             </div>
           ))}

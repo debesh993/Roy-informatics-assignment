@@ -1,51 +1,14 @@
 import backgroundimage from "../../assets/background/texture.jpeg";
 
-import sherwani1 from "../../assets/sherwani/20220731120943_sherwani4.jpg";
-import sherwani2 from "../../assets/sherwani/20220624121138_ANKL1.jpg";
-import sherwani3 from "../../assets/sherwani/20220624122113_ANKL29copy.jpg";
-import sherwani4 from "../../assets/sherwani/20220624125026_ANKL10copy.jpg";
+import { Link } from "react-router-dom";
 
-const products = [
-  {
-    id: 1,
-    name: "Sherwani Classic",
-    category: "Men's",
-    mrp: "N/A",
-    salePrice: "₹27000",
-    image: sherwani1,
-    link: "/product_details/1",
-  },
-  {
-    id: 2,
-    name: "Sherwani Royal",
-    category: "Men's",
-    mrp: "N/A",
-    salePrice: "₹28000",
-    image: sherwani2,
-    link: "/product_details/2",
-  },
-  {
-    id: 3,
-    name: "Sherwani Elegance",
-    category: "Men's",
-    mrp: "N/A",
-    salePrice: "₹29000",
-    image: sherwani3,
-    link: "/product_details/3",
-  },
-  {
-    id: 4,
-    name: "Sherwani Premium",
-    category: "Men's",
-    mrp: "N/A",
-    salePrice: "₹30000",
-    image: sherwani4,
-    link: "/product_details/4",
-  },
-];
+import { useProducts } from "../context/ProductContext";
+
+
 
 const Sherwani = () => {
-  return (
+let {products}=useProducts()
+  products = products.slice(51, 55);  return (
     <section
       id="expert"
       className="py-32 bg-cover bg-center"
@@ -80,11 +43,11 @@ const Sherwani = () => {
                 <p className="text-gray-800 font-bold mb-3">
                   Sale Price: {product.salePrice}
                 </p>
-                <a href={product.link}>
+                <Link to={product.link}>
                   <button className="px-6 py-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded transition duration-300">
                     View More
                   </button>
-                </a>
+                </Link>
               </div>
             </div>
           ))}
