@@ -8,7 +8,7 @@ import { useProducts } from "../context/ProductContext";
 
 const Sherwani = () => {
 let {products}=useProducts()
-  products = products.slice(51, 55);  return (
+  products = products.slice(51, 54);  return (
     <section
       id="expert"
       className="py-32 bg-cover bg-center"
