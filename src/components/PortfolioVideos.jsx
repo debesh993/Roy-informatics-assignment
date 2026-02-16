@@ -2,6 +2,7 @@ import video1 from "../assets/thumbnail_image/20220716071647_thumbnail-4.jpg";
 import video2 from "../assets/thumbnail_image/20220716071510_thumbnail-3.jpg";
 import video3 from "../assets/thumbnail_image/20220716071445_thumbnail-2.jpg";
 import video4 from "../assets/thumbnail_image/20220716071306_thumbnail-1.jpg";
+import { Link, useNavigate } from "react-router-dom";
 
 const videos = [
   {
@@ -27,6 +28,7 @@ const videos = [
 ];
 
 const PortfolioVideos = () => {
+  const navigate=useNavigate()
   return (
     <section
       id="portfolio"
@@ -81,8 +83,19 @@ const PortfolioVideos = () => {
 
         {/* View More Button */}
         <div className="text-center mt-14">
-          <a
-            href="/video"
+          <Link
+            to="/"
+            onClick={(e) => {
+                e.preventDefault(); // prevent instant navigation
+                document
+                  .getElementById("home")
+                  ?.scrollIntoView({ behavior: "smooth" });
+
+                // After smooth scroll, navigate
+                setTimeout(() => {
+                  navigate("/");
+                }, 500); // adjust timeout to match scroll duration
+              }}
             className="
               inline-flex items-center justify-center
               px-8 py-3
@@ -95,7 +108,7 @@ const PortfolioVideos = () => {
             "
           >
             View More
-          </a>
+          </Link>
         </div>
 
       </div>

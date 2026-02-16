@@ -5,6 +5,7 @@ import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
 import makeup1 from "../assets/makeup_image/20220924073647_makeup1.jpg";
 import makeup2 from "../assets/makeup_image/20220924073702_makeup2.jpg";
 import makeup3 from "../assets/makeup_image/20220924073716_makeup3.jpg";
+import { Link } from "react-router-dom";
 
 const services = [
   {
@@ -93,8 +94,8 @@ const MakeupServices = () => {
               {service.description}
             </p>
 
-            <a
-              href="/makeup-gallery"
+            <Link
+              to="/women/blouse"
               className="
                 inline-block
                 border border-white
@@ -106,7 +107,7 @@ const MakeupServices = () => {
               "
             >
               View More
-            </a>
+            </Link>
           </div>
 
           {/* Right Image */}

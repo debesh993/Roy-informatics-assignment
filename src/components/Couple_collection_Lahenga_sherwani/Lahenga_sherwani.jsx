@@ -6,10 +6,10 @@ import { Link } from "react-router-dom";
 
 const Lahenga_sherwani = () => {
   let {products}=useProducts()
-  products = products.slice(123, 127);
+  products = products.slice(123, 126);
   return (
     <section
-      id="expert"
+      id="expert2"
       className="py-32 bg-cover bg-center"
       style={{ backgroundImage: `url(${backgroundimage})` }}
     >

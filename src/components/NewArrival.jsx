@@ -1,26 +1,31 @@
 import image1 from '../assets/newarrival_image/202306051124101474.jpg'
 import image2 from '../assets/newarrival_image/202306051123583539.jpg'
 import image3 from '../assets/newarrival_image/202306020504311630.jpg'
+import { useNavigate } from "react-router-dom";
 
 const arrivals = [
   {
-    id: 1,
+    id: "expert",
     image: image1,
-    link: "/shop",
+    link: "/man/kurta",
   },
   {
-    id: 2,
+    id: "expert1",
     image: image2,
-    link: "/shop",
+    link: "/women/saree",
   },
   {
-    id: 3,
+    id: "expert2",
     image: image3,
-    link: "/shop",
+    link: "/couple/lahenga_sherwani",
   },
 ];
 
 const NewArrival = () => {
+  const navigate=useNavigate()
+  const handleClick = (link, sectionId) => {
+    navigate(`${link}#${sectionId}`);
+  };
   return (
     <section id="blog" className="bg-[#ede0b4] py-20 lg:py-28">
       <div className="max-w-[1400px] mx-auto px-5 lg:px-10">
@@ -35,9 +40,9 @@ const NewArrival = () => {
         {/* Grid */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {arrivals.map((item) => (
-            <a
+            <div
               key={item.id}
-              href={item.link}
+              onClick={() => handleClick(item.link, item.id)}
               className="group block overflow-hidden rounded-xl"
             >
               <div className="relative">
@@ -83,7 +88,7 @@ const NewArrival = () => {
                 </div>
 
               </div>
-            </a>
+            </div>
           ))}
         </div>
 

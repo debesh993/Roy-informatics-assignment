@@ -2,10 +2,12 @@ import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import aboutImg from "../assets/about/AN_medium.jpg";
+import { Link, useNavigate } from "react-router-dom";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const About1 = () => {
+  const navigate=useNavigate()
   const sectionRef = useRef(null);
 
   useEffect(() => {
@@ -64,11 +66,22 @@ const About1 = () => {
               A sudden walk into the magical world of a new Fashion house and you are bewildered with the unique patterns in textiles, marvelous colour combination and stunning designs which is at the very same time traditional yet contemporary, ethnic yet occidental.
             </p>
 
-            <a href="/about">
+            <Link to="/"
+              onClick={(e) => {
+                e.preventDefault(); 
+                document
+                  .getElementById("home")
+                  ?.scrollIntoView({ behavior: "smooth" });
+
+                setTimeout(() => {
+                  navigate("/");
+                }, 500); 
+              }}
+            >
               <button className="px-8 py-3 border border-black text-black transition duration-300 hover:bg-black hover:text-white">
                 View More
               </button>
-            </a>
+            </Link>
 
           </div>
         </div>

@@ -3,39 +3,41 @@ import womens from "../assets/category_image/20220924071914_womens.webp";
 import couple from "../assets/category_image/20220924071854_couple.webp";
 import juti from "../assets/category_image/20220924071838_coverjuti.webp";
 import clientele from "../assets/category_image/202407140449564196.jpg";
+import { Link } from "react-router-dom";
 
 const categories = [
   {
     id: 1,
     title: "Men's",
     image: mens,
-    link: "/category/1",
+    link: "/man/kurta",
   },
   {
     id: 2,
     title: "Women",
     image: womens,
-    link: "/category/2",
+    link: "/women/saree",
   },
   {
     id: 3,
     title: "Couple",
     image: couple,
-    link: "/category/3",
+    link: "/couple/lahenga_sherwani",
   },
   {
     id: 4,
     title: "Juti",
     image: juti,
-    link: "/category/4",
+    link: "/juti",
   },
   {
     id: 5,
     title: "Clientele",
     image: clientele,
-    link: "/category/5",
+    link: "/clintele",
   },
 ];
+
 
 const ShopCollection = () => {
   return (
@@ -88,8 +90,8 @@ const ShopCollection = () => {
                   {item.title}
                 </h4>
 
-                <a
-                  href={item.link}
+                <Link
+                  to={item.link}
                   className="
                     inline-block
                     border border-black
@@ -101,7 +103,7 @@ const ShopCollection = () => {
                   "
                 >
                   Shop Now
-                </a>
+                </Link>
               </div>
             </div>
           ))}

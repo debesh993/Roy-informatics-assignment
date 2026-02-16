@@ -7,7 +7,7 @@ const Saree = () => {
 let {products}=useProducts()
   products = products.slice(55, 93);  return (
     <section
-      id="expert"
+      id="expert1"
       className="py-32 bg-cover bg-center"
       style={{ backgroundImage: `url(${backgroundimage})` }}
     >

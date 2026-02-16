@@ -8,6 +8,7 @@ import img3 from "../assets/gallery_image/20220716064826_shoots.jpg";
 import img4 from "../assets/gallery_image/20220716064816_makeup2.jpg";
 import img5 from "../assets/gallery_image/20220716064805_makeup.jpg";
 import img6 from "../assets/gallery_image/20220624073321_G4.jpg";
+import { Link } from "react-router-dom";
 
 const galleryImages = [
   { id: 1, category: "Celebraties", image: img1 },
@@ -103,11 +104,11 @@ const Gallery1 = () => {
 
         {/* View More Button */}
         <div className="text-center mt-12">
-          <a href="/gallery">
+          <Link to="/women/saree">
             <button className="px-8 py-3 border border-black text-black transition duration-300 hover:bg-black hover:text-white">
               View More
             </button>
-          </a>
+          </Link>
         </div>
 
       </div>
