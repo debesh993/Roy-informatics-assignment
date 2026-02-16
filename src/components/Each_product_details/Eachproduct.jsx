@@ -138,12 +138,12 @@ const Eachproduct = () => {
               {product.description || "Premium handcrafted traditional attire."}
             </p>
 
-            <a
-              href="#"
+            <Link
+              to="#"
               className="inline-block bg-[#9a8f5c] text-white uppercase tracking-wider px-10 py-4 mt-6 hover:bg-black transition duration-300"
             >
               View Catalog
-            </a>
+            </Link>
 
           </div>
         </div>
